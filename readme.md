@@ -10,6 +10,8 @@ file.addEventListener("input", async (ev) => {
   fetch("libheif.wasm")
     .then((res) => res.arrayBuffer())
     .then(async (wasmBinary) => {
+      // HeifConvert class is in convert.js
+      // libheif is in libheif.js
       const heic = new HeifConvert(libheif({ wasmBinary: wasmBinary }))
       const canvas = heic.convert(buffer);
     })
