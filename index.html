@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>libheic - convert heic image to jpg/png</title>
+    <style>
+      body {
+        font-family: sans-serif;
+      }
+      #title {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+      }
+      #result {
+        max-width: 80%;
+        margin: 20px auto;
+      }
+      #result canvas,
+      #result img {
+        width: 100%;
+      }
+
+      #ribbon {
+        position: fixed;
+        top: 0;
+        right: 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <a id="ribbon" href="https://github.com/AJLoveChina/libheic"
+      ><img
+        decoding="async"
+        width="149"
+        height="149"
+        src="https://github.blog/wp-content/uploads/2008/12/forkme_right_green_007200.png"
+        class="attachment-full size-full"
+        alt="Fork me on GitHub"
+        loading="lazy"
+    /></a>
+    <h1 id="title">libheic</h1>
+
+    <input type="file" id="file" />
+    Image Type :
+    <select id="type">
+      <option value="image/jpeg">image/jpeg</option>
+      <option value="image/png">image/png</option>
+    </select>
+    Quality :
+    <input type="number" min="0" max="1" id="quality" step="0.1" value="0.8" />
+    <br />
+    <br />
+    <button id="convert">Convert</button>
+    <b>Please select ".heic" image, it will be converted into png/jpg</b>
+    <div id="result"></div>
+
+    <pre>
+      # libheic will convert heic to canvas object
+      # After that we can convert canvas to png/jpg with any quality option
+      
+      canvas.toBlob(callback, type, quality)
+
+      For your information : 
+      Recommended quality: 0.8
+      Miro, Mural, Figjam all render heic as jpg format.
+    </pre>
+
+    <p>
+      License: GNU Lesser General Public License <br />
+      Based on <a href="https://github.com/strukturag/libheif">libheif</a>
+      <br />
+      Author:
+      <a href="https://ajlovechina.github.io">AJLoveChina</a>
+    </p>
+    <script src="libheif.js"></script>
+    <script src="convert.js"></script>
+    <script src="demo.js"></script>
+  </body>
+</html>
